@@ -12,16 +12,24 @@
 
 Make sure you have installed all of the dependencies for [Trellis](https://github.com/roots/trellis#requirements), [Bedrock](https://github.com/roots/bedrock#requirements) and [Sage](https://github.com/roots/sage#requirements) before moving on. At a minimum you need to have:
 
+* [Homebrew](https://brew.sh/)
+* [Git]()
 * [Ansible](http://docs.ansible.com/ansible/intro_installation.html#latest-releases-via-pip) >= 2.4.0
 * [Virtualbox](https://www.virtualbox.org/wiki/Downloads) >= 4.3.10
 * [Vagrant](https://www.vagrantup.com/downloads.html) >= 1.8.5
-* [Node.js](http://nodejs.org/) >= 4.5.0
-* [Gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md) >= 3.8.10
-* [Bower](https://github.com/bower/bower/blob/master/README.md#install) >= 1.3.12
+* [Node.js](http://nodejs.org/) >= 6.9.x
+* [Yarn](https://yarnpkg.com/en/docs/install)
 
 
+## Installation
 
-<br />
+```sh
+#
+$
+```
+
+
+<p align="center">:fork_and_knife:</p>
 
 
 
@@ -40,7 +48,15 @@ There are two components and places to configure sites:
 
 Development is handled by [Vagrant](https://www.vagrantup.com/) in Trellis. The `Vagrantfile` automatically uses the Ansible provisioner to run the `dev.yml` playbook to get a virtual machine running the WordPress site.
 
+##### Commands ([docs](https://www.vagrantup.com/docs/cli/))
 `vagrant up` | `vagrant halt` | `vagrant provision`
+
+##### Accessing MySQL databases ([Sequel Pro](https://www.sequelpro.com/))
+
+##### + [Documentation](https://roots.io/trellis/docs/)
+
+
+---
 
 ### Staging / Production
 
@@ -51,13 +67,6 @@ Any type of server configs such as this playbook should always be in a __private
 
 ---
 
-[Documentation](https://roots.io/trellis/docs/)
-
-[Trellis License](https://github.com/roots/trellis/blob/master/LICENSE.md)
-
----
-
-
 
 
 
@@ -65,14 +74,28 @@ Any type of server configs such as this playbook should always be in a __private
 
 ## Bedrock: WordPress project boilerplate (Application)
 
-[Bedrock License](https://github.com/roots/bedrock/blob/master/LICENSE.md)
+Clean **new Bedrock** site: `$ git clone --depth=1 git@github.com:roots/bedrock.git newSite && rm -rf newSite/.git newSite/.github newSite/CHANGELOG.md newSite CODE_OF_CONDUCT.md`
+
+##### + [Documentation](https://roots.io/bedkrock/docs/)
+
+
 
 
 
 ## Sage: WordPress starter theme (Theme)
 
-[Sage License](https://github.com/roots/sage/blob/master/LICENSE.md)
+```sh
+# cd site/web/app/themes/
+$ composer create-project roots/sage sage9 dev-master
+```
 
+### Build commands
+
+- `yarn run start` — Compile assets when file changes are made, start Browsersync session
+- `yarn run build` — Compile and optimize the files in your assets directory
+- `yarn run build:production` — Compile assets for production
+
+##### + [Documentation](https://roots.io/sage/docs/)
 
 
 <br /> <br />
